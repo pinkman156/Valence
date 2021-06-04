@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 import Recent from "./Recent";
 import Math from "./Math";
 import Suggest from "./Suggest";
@@ -15,6 +16,10 @@ export default function Dashboard(props) {
   const [mood, setMood] = useState("judging mood");
   const [fav, setFav] = useState("");
   const [top, setTop] = useState("");
+  const [mess, setMess] = useState(
+    "Hmm that's an interesting listening history..."
+  );
+  const [me, setMe] = useState("");
 
   useEffect(() => {
     let index = 0; // This will keep track of the current array index to use
@@ -25,7 +30,11 @@ export default function Dashboard(props) {
       if (index < img.length) {
         ig.src = img[index];
         index++;
-        console.clear();
+
+        if (index === 15)
+          setMess(
+            "Woah, you have an excellent taste in music! We are very impressed :)"
+          );
         console.log(img[index]);
       } else {
         if (mood === "Dance")
@@ -48,15 +57,29 @@ export default function Dashboard(props) {
 
   return (
     <div className="body">
-      <div className="fav">
-        <h2>
-          Top Artist:{" "}
-          {fav !== "" ? <span style={{ color: "white" }}>{fav}</span> : ""}
+      <Navbar />
+      <div className="header">
+        <h2
+          style={{
+            color: "white",
+            textAlign: "left",
+            marginLeft: "8%",
+            marginTop: "7% ",
+            marginBottom: "-3%",
+          }}
+        >
+          Welcome to Valence, <span style={{ color: "black" }}>{me}</span>{" "}
         </h2>
-        <h2>
-          Top Track:{" "}
-          {fav !== "" ? <span style={{ color: "white" }}>{top}</span> : ""}
-        </h2>
+        <div className="fav">
+          <h2>
+            Top Artist:{" "}
+            {fav !== "" ? <span style={{ color: "white" }}>{fav}</span> : ""}
+          </h2>
+          <h2>
+            Top Track:{" "}
+            {fav !== "" ? <span style={{ color: "white" }}>{top}</span> : ""}
+          </h2>
+        </div>
       </div>
       <div className="container1">
         <div className="box1">
@@ -68,7 +91,9 @@ export default function Dashboard(props) {
                 <span style={{ color: "white" }}>{mood} </span> mood
               </h1>
               <div className="innerbox">
-                <h2>Here are some more {mood} tracks for you to listen</h2>
+                <h2 style={{ color: "white" }}>
+                  Here are some more {mood} tracks for you to listen
+                </h2>
                 {console.log(mood)}
                 <Suggest accessToken={accessToken} mood={mood} />
               </div>
@@ -85,6 +110,7 @@ export default function Dashboard(props) {
           img={img}
           setFav={setFav}
           setTop={setTop}
+          setMe={setMe}
         />
 
         {recent.length > 0 ? (
@@ -111,7 +137,6 @@ export default function Dashboard(props) {
         </section>
         {/* {autoChange} */}
       </div>
-
       <Footer />
     </div>
   );

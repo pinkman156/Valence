@@ -73,7 +73,11 @@ export default function Playlist(props) {
       )}
       <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
 
-      <button className="btn" onClick={handleNext}>
+      <button
+        className="btn"
+        onClick={handleNext}
+        style={{ marginTop: "2%", marginBottom: "2%" }}
+      >
         Press To Play a Track
       </button>
     </div>

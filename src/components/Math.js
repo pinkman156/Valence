@@ -69,7 +69,7 @@ export default function Math(props) {
       props.setMood("Happy");
     } else if (e === "low" && v !== "high") {
       props.setMood("Feelz");
-    } else if (v === "low" && e === "low") {
+    } else if (v === "low") {
       props.setMood("Sad");
     } else if (d === "high") {
       props.setMood("Dance");

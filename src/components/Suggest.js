@@ -14,6 +14,7 @@ export default function Suggest(props) {
   else if (mood === "Mixed") play = "01lmejDidsoC1G5AQOEyw5";
   else if (mood === "Dance") play = "47wJ7EnK8x3V9didTWjb1F";
   else if (mood === "Party") play = "5xS3Gi0fA3Uo6RScucyct6";
+  else play = "01lmejDidsoC1G5AQOEyw5";
   return (
     <div>
       <Playlist accessToken={props.accessToken} playlist={play} />

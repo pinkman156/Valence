@@ -38,6 +38,10 @@ export default function Recent(props) {
       })
       .catch((err) => console.log(err));
 
+    spotifyApi.getMe().then((res) => {
+      props.setMe(res.body.display_name);
+    });
+
     spotifyApi
       .getMyTopArtists({ limit: 1, time_range: "short_term" })
       .then((res) => {
