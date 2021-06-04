@@ -155,8 +155,6 @@ export default function Dashboard(props) {
           </h3>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
