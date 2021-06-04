@@ -20,7 +20,7 @@ export default function Player({ accessToken, trackUri }) {
         uris={trackUri ? [trackUri] : []}
         styles={{
           activeColor: "#fff",
-          bgColor: "gray",
+          bgColor: "rgb(219, 201, 41)",
           color: "white",
           loaderColor: "black",
           sliderColor: "#1cb954",

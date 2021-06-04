@@ -58,19 +58,20 @@ export default function Playlist(props) {
   }
 
   return (
-    <div className="playlist">
+    <div className="playlist" style={{ marginTop: "20%" }}>
       {/* {console.log(load)} */}
       {load && tracks.length > 0 && (
-        <div>
+        <div style={{ marginTop: "-10%" }}>
           {" "}
-          <h2 style={{ color: "pink" }}>{playingTrack.name}</h2>{" "}
-          <h3 style={{ marginTop: "-10%", color: "pink" }}>
+          <h2 style={{ color: "red" }}>{playingTrack.name}</h2>{" "}
+          <h3 style={{ marginTop: "-10%", color: "red" }}>
             {playingTrack.artists !== undefined
               ? playingTrack.artists[0].name
               : null}
           </h3>
         </div>
       )}
+
       <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
 
       <button

@@ -33,6 +33,7 @@ export default function Math(props) {
             energy: item.energy,
             valence: item.valence,
             tempo: item.tempo,
+            acous: item.acousticness,
           }))
         );
         return;
@@ -48,16 +49,15 @@ export default function Math(props) {
     } else if (val > 0.7) return "high";
   }
 
-  function select_tracks(tempo, valence, energy, dance) {
-    console.log(tempo);
-    console.log(valence);
-    console.log(energy);
-    console.log(dance);
-    // if (props.tracksInfo.length !== 20) return;
+  function select_tracks(tempo, valence, energy, dance, acous) {
+    props.setTempo(tempo.toFixed(2));
+    // props.set(valence);
+    props.setEnergy(energy.toFixed(2));
+    props.setDance(dance.toFixed(2));
+    props.setAcous(acous.toFixed(2));
     let d = returnRange(dance);
     let e = returnRange(energy);
-    //   let instrumentalness = returnRange(track.instrumentalness);
-    //   let speechiness = returnRange(track.speechiness);
+
     let v = returnRange(valence);
     let t = tempo;
 
@@ -93,6 +93,7 @@ export default function Math(props) {
       let val = 0;
       let energy = 0;
       let dance = 0;
+      let acous = 0;
       props.tracksInfo.map((track) => {
         // setValence(valence + track.valence);
         // console.log("20");
@@ -102,6 +103,7 @@ export default function Math(props) {
         val = val + track.valence;
         energy = energy + track.energy;
         dance = dance + track.danceability;
+        acous = acous + track.acous;
         // console.log(temp);
         // setTempo(temp);
         // setEnergy(energy + track.energy);
@@ -118,7 +120,8 @@ export default function Math(props) {
         temp / 20,
         (val * 1.0) / 20,
         energy / 20,
-        (dance * 1.0) / 20
+        (dance * 1.0) / 20,
+        (acous * 1.0) / 20
       );
     }
 

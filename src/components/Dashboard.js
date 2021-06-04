@@ -16,35 +16,26 @@ export default function Dashboard(props) {
   const [mood, setMood] = useState("judging mood");
   const [fav, setFav] = useState("");
   const [top, setTop] = useState("");
-  const [mess, setMess] = useState(
-    "Hmm that's an interesting listening history..."
-  );
+  const [tempo, setTempo] = useState(0);
+  const [dance, setDance] = useState(0);
+  const [energy, setEnergy] = useState(0);
+  const [acous, setAcous] = useState(0);
+
   const [me, setMe] = useState("");
 
   useEffect(() => {
-    let index = 0; // This will keep track of the current array index to use
-    let ig = document.getElementById("img"); // Get your reference just once, not on each function call
+    let index = 0;
+    let ig = document.getElementById("img");
 
     function autoChange() {
       if (img.length !== 20 || flag === true) return;
       if (index < img.length) {
         ig.src = img[index];
         index++;
-
-        if (index === 15)
-          setMess(
-            "Woah, you have an excellent taste in music! We are very impressed :)"
-          );
-        console.log(img[index]);
       } else {
-        if (mood === "Dance")
-          ig.src =
-            "https://cdn1.ftimg.com/images/logos/big/en_US/dance-logo.png";
         setflag(true);
         return;
       }
-      console.log(mood);
-
       setTimeout(autoChange, 500);
     }
 
@@ -68,33 +59,40 @@ export default function Dashboard(props) {
             marginBottom: "-3%",
           }}
         >
-          Welcome to Valence, <span style={{ color: "black" }}>{me}</span>{" "}
+          Welcome to Valence, <span style={{ color: "green" }}>{me}</span>{" "}
         </h2>
         <div className="fav">
           <h2>
             Top Artist:{" "}
-            {fav !== "" ? <span style={{ color: "white" }}>{fav}</span> : ""}
+            {fav !== "" ? (
+              <span style={{ color: "red" }}>{fav}</span>
+            ) : (
+              <span style={{ color: "red" }}>Loading</span>
+            )}
           </h2>
           <h2>
             Top Track:{" "}
-            {fav !== "" ? <span style={{ color: "white" }}>{top}</span> : ""}
+            {fav !== "" ? (
+              <span style={{ color: "red" }}>{top}</span>
+            ) : (
+              "Loading..."
+            )}
           </h2>
         </div>
       </div>
       <div className="container1">
         <div className="box1">
-          {load === false ? <h1>Loading</h1> : load}
           {flag === true ? (
             <div>
               <h1>
                 Valence found out that you are in a{" "}
-                <span style={{ color: "white" }}>{mood} </span> mood
+                <span style={{ color: "red" }}>{mood} </span> mood
               </h1>
               <div className="innerbox">
-                <h2 style={{ color: "white" }}>
+                <h2 style={{ color: "orange" }}>
                   Here are some more {mood} tracks for you to listen
                 </h2>
-                {console.log(mood)}
+
                 <Suggest accessToken={accessToken} mood={mood} />
               </div>
             </div>
@@ -120,6 +118,10 @@ export default function Dashboard(props) {
             tracksInfo={tracksInfo}
             setTracksInfo={setTracksInfo}
             setMood={setMood}
+            setTempo={setTempo}
+            setEnergy={setEnergy}
+            setAcous={setAcous}
+            setDance={setDance}
           />
         ) : (
           <h2>Fetching</h2>
@@ -135,8 +137,25 @@ export default function Dashboard(props) {
             />
           </figure>
         </section>
-        {/* {autoChange} */}
       </div>
+      <div className="stats">
+        Your average stats based on your recent listening:
+        <div className="val">
+          <h3>
+            Acousticness: <span style={{ color: "black" }}>{acous}</span>{" "}
+          </h3>
+          <h3>
+            Tempo: <span style={{ color: "black" }}>{tempo}</span>{" "}
+          </h3>
+          <h3>
+            Danceability: <span style={{ color: "black" }}>{dance}</span>{" "}
+          </h3>
+          <h3>
+            Energy: <span style={{ color: "black" }}>{energy}</span>
+          </h3>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

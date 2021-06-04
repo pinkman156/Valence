@@ -31,23 +31,18 @@ class Login extends Component {
     return (
       <div className="loginpage">
         {/* <NavBar /> */}
-        <div className="container">
-          <div className="box">
-            <h1>Valence</h1>
-            <h2>Judges your mood according to your music taste</h2>
-          </div>
-          {!this.state.token && (
-            <a
-              className="login"
-              href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-                "%20"
-              )}&response_type=token&show_dialog=true`}
-            >
-              Login to Spotify
-            </a>
-          )}
-        </div>
-
+        <h1 style={{ marginRight: "7%" }}>Valence</h1>
+        <h2>Judges your mood according to your music taste</h2>
+        {!this.state.token && (
+          <a
+            className="login"
+            href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+              "%20"
+            )}&response_type=token&show_dialog=true`}
+          >
+            Login to Spotify
+          </a>
+        )}
         <Footer />
       </div>
     );
