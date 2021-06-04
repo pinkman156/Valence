@@ -20,6 +20,7 @@
 }
 
 body {
+  font-family: "VCR OSD Mono";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
