@@ -53,12 +53,12 @@ body {
   margin-top: -8%;
   /* flex-flow: wrap; */
   font-size: 25px;
-
+  margin-bottom: -15%;
   /* margin: 10vh 0 65vh; */
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -71,7 +71,7 @@ a {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 30px;
-  margin-top: 0%;
+  /* margin-top: 0%; */
   border-width: 0;
   border-style: solid;
   border-radius: 50px;
@@ -79,6 +79,10 @@ a {
   font-weight: 700;
   padding: 10px;
 }
+
+/* .login {
+  position: absolute;
+} */
 
 a:link,
 a:visited {

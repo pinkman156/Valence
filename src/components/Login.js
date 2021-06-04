@@ -33,6 +33,7 @@ class Login extends Component {
         {/* <NavBar /> */}
         <h1 style={{ marginRight: "7%" }}>Valence</h1>
         <h2>Judges your mood according to your music taste</h2>
+
         {!this.state.token && (
           <a
             className="login"
