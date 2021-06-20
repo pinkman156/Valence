@@ -67,6 +67,21 @@ body {
   /* background-color: rgb(240, 145, 184); */
 }
 
+.info {
+  display: flex;
+  margin-top: -3%;
+
+  margin-right: 10%;
+  justify-content: space-around;
+}
+
+.pfp {
+  position: relative;
+  margin-top: 5%;
+  border-radius: 60%;
+  vertical-align: middle;
+}
+
 a {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

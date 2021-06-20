@@ -20,6 +20,7 @@ export default function Dashboard(props) {
   const [dance, setDance] = useState(0);
   const [energy, setEnergy] = useState(0);
   const [acous, setAcous] = useState(0);
+  const [pic, setPic] = useState("");
 
   const [me, setMe] = useState("");
 
@@ -50,17 +51,20 @@ export default function Dashboard(props) {
     <div className="body">
       <Navbar />
       <div className="header">
-        <h2
-          style={{
-            color: "white",
-            textAlign: "left",
-            marginLeft: "8%",
-            marginTop: "7% ",
-            marginBottom: "-3%",
-          }}
-        >
-          Welcome to Valence, <span style={{ color: "green" }}>{me}</span>{" "}
-        </h2>
+        <div className="info">
+          <h2
+            style={{
+              color: "white",
+              textAlign: "left",
+              marginLeft: "8%",
+              marginTop: "7% ",
+              marginBottom: "-3%",
+            }}
+          >
+            Welcome to Valence, <span style={{ color: "green" }}>{me}</span>{" "}
+            <img class="pfp" width="150" height="150" src={pic} />
+          </h2>
+        </div>
         <div className="fav">
           <h2>
             Top Artist:{" "}
@@ -109,6 +113,7 @@ export default function Dashboard(props) {
           setFav={setFav}
           setTop={setTop}
           setMe={setMe}
+          setPic={setPic}
         />
 
         {recent.length > 0 ? (

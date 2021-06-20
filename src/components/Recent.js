@@ -40,6 +40,7 @@ export default function Recent(props) {
 
     spotifyApi.getMe().then((res) => {
       props.setMe(res.body.display_name);
+      props.setPic(res.body.images[0].url);
     });
 
     spotifyApi
