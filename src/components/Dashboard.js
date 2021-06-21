@@ -61,8 +61,10 @@ export default function Dashboard(props) {
               marginBottom: "-3%",
             }}
           >
-            Welcome to Valence, <span style={{ color: "green" }}>{me}</span>{" "}
-            <img class="pfp" width="150" height="150" src={pic} />
+            Welcome to Valence,{" "}
+            <img class="pfp" width="50" height="50" src={pic} />
+            {"   "}
+            <span style={{ color: "green" }}>{me}</span>{" "}
           </h2>
         </div>
         <div className="fav">
