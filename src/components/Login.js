@@ -35,7 +35,6 @@ class Login extends Component {
         <div className="logbtn">
           {!this.state.token && (
             <a
-              className="login"
               href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
                 "%20"
               )}&response_type=token&show_dialog=true`}
@@ -43,7 +42,14 @@ class Login extends Component {
               Login to Spotify
             </a>
           )}
+
+          {!this.state.token && (
+            <a className="login" onClick={() => this.props.setToken("Demo")}>
+              View Demo
+            </a>
+          )}
         </div>
+
         <Footer />
       </div>
     );

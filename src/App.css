@@ -57,6 +57,13 @@ body {
   /* margin: 10vh 0 65vh; */
 }
 
+.logbtn {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -93,6 +100,11 @@ a {
   white-space: nowrap;
   font-weight: 700;
   padding: 10px;
+  color: rgb(223, 148, 179);
+  margin-bottom: 4%;
+  background-color: #ffffff;
+  width: 20%;
+  margin-top: 25%;
 }
 
 /* .login {
@@ -101,8 +113,7 @@ a {
 
 a:link,
 a:visited {
-  background-color: #ffffff;
-  margin-top: 25%;
+  /* background-color: #ffffff; */
   color: rgb(223, 148, 179);
   padding: 14px 25px;
   text-align: center;
