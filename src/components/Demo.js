@@ -16,6 +16,14 @@ export default function Demo(props) {
     "https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79",
     "https://i.scdn.co/image/ab67616d0000b2731d5cf960a92bb8b03fc2be7f",
     "https://i.scdn.co/image/ab67616d0000b2731d97ca7376f835055f828139",
+    "https://i.scdn.co/image/ab67616d0000b273e1e350d06ffebd2e19e047ce",
+    "https://i.scdn.co/image/ab67616d0000b2734e0362c225863f6ae2432651",
+    "https://i.scdn.co/image/ab67616d0000b2734e0362c225863f6ae2432651",
+    "https://i.scdn.co/image/ab67616d0000b2735da5e18b4f9a33d42e737c21",
+    "https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b",
+    "https://i.scdn.co/image/ab67616d0000b273b09e5084136821bf64d327f4",
+    "https://i.scdn.co/image/ab67616d0000b273b4ad7ebaf4575f120eb3f193",
+    "https://i.scdn.co/image/ab67616d0000b2731d97ca7376f835055f828139",
   ]);
 
   useEffect(() => {
@@ -23,7 +31,7 @@ export default function Demo(props) {
     let ig = document.getElementById("img");
 
     function autoChange() {
-      if (img.length !== 12 || flag === true) return;
+      if (img.length !== 20 || flag === true) return;
       if (index < img.length) {
         ig.src = img[index];
         index++;
